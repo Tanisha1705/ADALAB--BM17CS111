@@ -3,7 +3,7 @@
 using namespace std; 
   
   
-void selectionSort(int arr[], int n)  {  
+void selectSort(int arr[], int n)  {  
     int i, j, min_idx;  
     for (i = 0; i < n-1; i++)  {  
         min_idx = i;  
@@ -17,7 +17,7 @@ void selectionSort(int arr[], int n)  {
     }  
 }  
 
-void bubbleSort(int arr[], int n)  {  
+void bubbSort(int arr[], int n)  {  
     int i, j;  
     for (i = 0; i < n-1; i++)      
 		for (j = 0; j < n-i-1; j++)  
@@ -31,24 +31,20 @@ void bubbleSort(int arr[], int n)  {
 
 int main() {
 	auto start = chrono::steady_clock::now();
-
-	
-
 	int n, arr[100], k;
 	cout << "Enter size of the array" << endl;
 	cin >> n;
 	cout << "Enter elements of the array" << endl;
 	for(int i = 0; i < n; i++)
 		cin >> arr[i];
-	selectionSort(arr, n);
-	//bubbleSort(arr,n);
+	selectSort(arr, n);
+	//bubbSort(arr,n);
 	cout << "Enter K" << endl;
 	cin >> k;
 	cout << "The kth element is: " << arr[k-1] << endl;
 	
 	auto end = chrono::steady_clock::now();
 	
-	cout << "Elapsed time in milliseconds : " 
-		<< chrono::duration_cast<chrono::milliseconds>(end - start).count()
+	cout << chrono::duration_cast<chrono::milliseconds>(end - start).count()
 		<< " ms" << endl;
 }
